@@ -185,35 +185,32 @@ tr:nth-child(even) {
 /* BankDetails.css */
 
 .bank-details-container {
-    font-family: 'unbounded', sans-serif;
-    background-color: #fff;
-    max-width: 800px;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-left: 400px;
-    height: 700px;
-
-}
+  max-width: 600px;
+  margin: 0 auto;
+  font-family: 'unbounded', sans-serif;
+  color: #333;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: -10px;
+margin-left: 500px;}
 
 .section-heading {
-    background-color: #d32f2f;
-    color: white;
-    text-align: center;
-    padding: 10px 0;
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 20px;
+  background-color: #d32f2f;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 20px;
 }
 
 .bank-details {
     padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-}
-
+    margin-bottom: 10px; /* Reduced from 20px to 10px */
+  }
+  
 .bank-details p {
-    font-size: 16px;
-    margin: 5px 0;
+  font-size: 14px;
+  margin: 5px 0;
 }
 
 .footer {
@@ -278,41 +275,4 @@ tr:nth-child(even) {
     .hide-on-web {
         display: block; /* Show when printing */
     }
-}
-
-.container {
-    background-color: white;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    font-family: 'unbounded' sans-serif;
-    max-width: 800px;
-
-}
-.payment-section {
-    margin-bottom: 30px;
-    border-radius: 5px;
-    overflow: hidden;
-}
-.payment-header {
-    background-color: #d9534f;
-    color: white;
-    padding: 10px;
-    font-weight: bold;
-    text-align: center;
-}
-.payment-details {
-    margin-top: 10px;
-    padding: 10px;
-    background-color: #fff;
-}
-.prepared-by {
-    background-color: #ff0000;
-    color: white;
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-}
-.prepared-by h2 {
-    margin-top: 0;
 }

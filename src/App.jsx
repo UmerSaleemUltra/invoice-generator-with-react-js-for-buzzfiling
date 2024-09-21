@@ -243,26 +243,23 @@ function InvoiceGenerator() {
       </div>
     
 
-      <div class="container">
-        <div class="payment-section">
-            <div class="payment-header">IF MAKING A PAYMENT IN PKR</div>
-            <div class="payment-details">
-                <p><strong>Bank Name:</strong> United Bank Limited (UBL)</p>
-                <p><strong>Account Title:</strong> BUZZ FILING</p>
-                <p><strong>Account Number:</strong> 1176314943776</p>
-                <p><strong>IBAN:</strong> PK22UNIL0109000314943776</p>
-            </div>
+      {/* Bank Details */}
+      <div className="bank-details-container" id="bank-details">
+        <div className="bank-details">
+          <h3 className="section-heading">IF MAKING A PAYMENT IN PKR</h3>
+          <p>Bank Name: United Bank Limited (UBL)</p>
+          <p>Account Title: BUZZ FILING</p>
+          <p>Account Number: 1176314943776</p>
+          <p>IBAN: PK22UNIL0109000314943776</p>
         </div>
 
-        <div class="payment-section">
-            <div class="payment-header">IF MAKING A PAYMENT IN USD</div>
-            <div class="payment-details">
-                <p><strong>Bank Name:</strong> Bangor Savings</p>
-                <p><strong>Bank Account Title:</strong> Hasham Usman</p>
-                <p><strong>Account Type:</strong> Checking</p>
-                <p><strong>Account Number:</strong> 650510940261</p>
-                <p><strong>Routing Number:</strong> 011275484</p>
-            </div>
+        <div className="bank-details">
+          <h3 className="section-heading">IF MAKING A PAYMENT IN USD</h3>
+          <p>Bank Name: Bangor Savings</p>
+          <p>Bank Account Title: Hasham Usman</p>
+          <p>Account Type: Checking</p>
+          <p>Account Number: 650510940261</p>
+          <p>Routing Number: 011275484</p>
         </div>
 
         <div className="footer">
@@ -279,8 +276,7 @@ function InvoiceGenerator() {
         </div>
       </div>
     </div>
-
-  
   );
 }
+
 export default InvoiceGenerator;
