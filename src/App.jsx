@@ -16,6 +16,7 @@ function InvoiceGenerator() {
   const [paymentTerms, setPaymentTerms] = useState(
     "Please note that a full payment of $300 (84,000 PKR) is required upfront to proceed with your ITIN application."
   );
+  const [invoiceFileName, setInvoiceFileName] = useState("invoice_with_bank_details.pdf");
 
   const handleAddItem = () => {
     setItems([...items, { description: "", amount: 0 }]);
@@ -61,7 +62,9 @@ function InvoiceGenerator() {
         const imgHeight = (canvas.height * imgWidth) / canvas.width;
 
         pdf.addImage(imgData, "PNG", 10, 10, imgWidth, imgHeight);
-        pdf.save("invoice_with_bank_details.pdf");
+
+        // Save PDF with user-provided or default filename
+        pdf.save(invoiceFileName);
       });
     });
   };
@@ -114,6 +117,8 @@ function InvoiceGenerator() {
                   handleChangeItem(index, "description", e.target.value)
                 }
               />
+
+              
               <input
                 type="number"
                 placeholder="Enter Amount"
@@ -152,6 +157,12 @@ function InvoiceGenerator() {
           onChange={(e) => setPaymentTerms(e.target.value)}
         />
 
+<label>Invoice Filename:</label>
+        <input
+          type="text"
+          value={invoiceFileName}
+          onChange={(e) => setInvoiceFileName(e.target.value)}
+        />
         <button onClick={downloadPDF}>Download PDF</button>
       </div>
 
