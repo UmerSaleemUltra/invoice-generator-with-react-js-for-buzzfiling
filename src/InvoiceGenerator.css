@@ -1,0 +1,318 @@
+body {
+    font-family: 'unbounded', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+.invoice-container {
+    font-family: 'unbounded', sans-serif;
+    background-color: #fff;
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    height: auto;
+    margin-left: 400px;
+}
+.invoice-header {
+    display: flex;
+    font-family: 'unbounded', sans-serif;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+    flex-wrap: wrap;
+    height: 100px;
+    
+}
+.invoice-header .logo img {
+    width: 300px; /* Adjust logo size */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: contain;
+}
+img{
+width: 100px; /* Adjust logo size */
+margin-top: -100px;
+}
+.invoice-header .invoice-number p:first-child {
+    font-family: 'unbounded', sans-serif;
+font-size: 40px; /* Make the INVOICE heading larger */
+font-weight: bold; /* Make the INVOICE heading bold */
+margin-bottom: -20px; /* Add some spacing below the heading */
+}
+
+.invoice-header .invoice-number  {
+font-size: 24px; /* Slightly smaller for the invoice number */
+font-weight: normal; /* Normal weight for the invoice number */
+margin-top: -120px; /* Ensure no extra margin on top */
+}
+
+
+
+.invoice-info {
+    margin-top: 20px;
+    line-height: 1.5;
+}
+.billed-to {
+    font-size: 18px;
+    font-weight: bold;
+}
+.table-container {
+    margin-top: 20px;
+    overflow-x: auto;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+th, td {
+    padding: 10px;
+    text-align: left;
+    background-color: white;
+}
+th {
+    background-color: #e60023;
+    color: #fff;
+}
+tr:nth-child(even) {
+    background-color: white;
+}
+.total {
+    font-weight: bold;
+    font-size: 18px;
+    border-top: 2px solid #ddd;
+}
+.payment-terms, .important-info {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+}
+.payment-terms p, .important-info p {
+    margin: 5px 0;
+}
+.footer {
+    background-color: #e60023;
+    color: white;
+    padding: 20px;
+    margin-top: 30px;
+    text-align: center;
+    position: relative;
+    clear: both;
+    font-family: 'unbounded', sans-serif;
+}
+.footer div {
+    margin-bottom: 10px;
+}
+.footer i {
+    margin-left: 10px;
+}
+.input-form {
+    margin: 20px auto;
+    max-width: 600px;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.input-form label {
+    display: block;
+    margin: 10px 0 5px;
+}
+.input-form input, .input-form select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+.input-form button {
+    background-color: #e60023;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    gap: 10px;
+}
+.item-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.item-row input {
+    margin-right: 10px;
+}
+.item-row button {
+    margin-left: 10px;
+    background-color: #e60023;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+/* Responsive for mobile */
+@media (max-width: 600px) {
+    .invoice-container, .input-form {
+        padding: 10px;
+        margin: 20px;
+    }
+    .invoice-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .invoice-header .invoice-number {
+        text-align: left;
+        font-size: 18px;
+    }
+    .invoice-header .logo img {
+        width: 150px;
+        height: auto;
+    }
+    table {
+        font-size: 14px;
+    }
+    .total {
+        font-size: 16px;
+    }
+    .footer {
+        font-size: 14px;
+        padding: 15px;
+    }
+}
+
+/* BankDetails.css */
+
+.bank-details-container {
+    font-family: 'unbounded', sans-serif;
+    background-color: #fff;
+    max-width: 800px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-left: 400px;
+    height: 700px;
+
+}
+
+.section-heading {
+    background-color: #d32f2f;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.bank-details {
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+.bank-details p {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+.footer {
+  background-color: #d32f2f;
+  color: white;
+  padding: 20px;
+  text-align: left;
+  font-size: 14px;
+}
+
+.footer strong {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.footer div {
+  margin-bottom: 10px;
+}
+
+.footer i {
+  margin-right: 5px;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+  .bank-details-container {
+    padding: 10px;
+  }
+}
+
+  .bank-details, .footer {
+    padding: 15px;
+  }
+
+  .section-heading {
+    font-size: 16px;
+    padding: 8px 0;
+  }
+
+  .footer {
+    background-color: #e60023;
+    color: white;
+    padding: 20px;
+    margin-top: 30px;
+    text-align: center;
+    position: relative;
+    clear: both;
+}
+.footer div {
+    margin-bottom: 10px;
+}
+.footer i {
+    margin-left: 10px;
+}
+
+.hide-on-web {
+    display: none;
+}
+
+/* Make the bank details visible for printing */
+@media print {
+    .hide-on-web {
+        display: block; /* Show when printing */
+    }
+}
+
+.container {
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-family: 'unbounded' sans-serif;
+    max-width: 800px;
+
+}
+.payment-section {
+    margin-bottom: 30px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.payment-header {
+    background-color: #d9534f;
+    color: white;
+    padding: 10px;
+    font-weight: bold;
+    text-align: center;
+}
+.payment-details {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #fff;
+}
+.prepared-by {
+    background-color: #ff0000;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+.prepared-by h2 {
+    margin-top: 0;
+}
