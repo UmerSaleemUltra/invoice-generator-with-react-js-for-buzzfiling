@@ -16,7 +16,7 @@ function InvoiceGenerator() {
   const [paymentTerms, setPaymentTerms] = useState(
     "Please note that a full payment of $300 (84,000 PKR) is required upfront to proceed with your ITIN application."
   );
-  const [invoiceFileName, setInvoiceFileName] = useState("invoice_with_bank_details.pdf");
+  const [invoiceFileName, setInvoiceFileName] = useState("invoice.pdf");
 
   const handleAddItem = () => {
     setItems([...items, { description: "", amount: 0 }]);
@@ -36,37 +36,31 @@ function InvoiceGenerator() {
 
   const downloadPDF = () => {
     const invoiceElement = document.getElementById("invoice");
-    const bankDetailsElement = document.getElementById("bank-details");
+
+    if (!invoiceElement) {
+      console.error("Invoice element not found.");
+      return;
+    }
 
     const pdf = new jsPDF({
       orientation: "portrait",
       unit: "mm",
-      format: [250, 280], // Full A4 page for two sections
+      format: [250, 250], // Full A4 page for two sections
     });
 
-    // Capture the first page (invoice)
-    html2canvas(invoiceElement, { scale: 3, useCORS: true }).then((canvas) => {
+  html2canvas(invoiceElement, { scale: 3, useCORS: true }).then((canvas) => {
       const imgData = canvas.toDataURL("image/png");
       const pdfWidth = pdf.internal.pageSize.getWidth();
       const imgWidth = pdfWidth - 20;
       const imgHeight = (canvas.height * imgWidth) / canvas.width;
 
-      pdf.addImage(imgData, "PNG", 10, 10, imgWidth, imgHeight);
-
-      // Add a new page for the bank details
-      pdf.addPage();
-
-      // Capture the second page (bank details)
-      html2canvas(bankDetailsElement, { scale: 3, useCORS: true }).then((canvas) => {
-        const imgData = canvas.toDataURL("image/png");
-        const imgHeight = (canvas.height * imgWidth) / canvas.width;
-
         pdf.addImage(imgData, "PNG", 10, 10, imgWidth, imgHeight);
-
-        // Save PDF with user-provided or default filename
-        pdf.save(invoiceFileName);
+        let finalFileName = invoiceFileName.endsWith('.pdf') ? invoiceFileName : `${invoiceFileName}.pdf`;
+        pdf.save(finalFileName);
+      })
+      .catch((error) => {
+        console.error("Error during PDF generation:", error);
       });
-    });
   };
 
   const subtotal = items.reduce((total, item) => total + Number(item.amount), 0);
@@ -117,8 +111,6 @@ function InvoiceGenerator() {
                   handleChangeItem(index, "description", e.target.value)
                 }
               />
-
-              
               <input
                 type="number"
                 placeholder="Enter Amount"
@@ -151,13 +143,14 @@ function InvoiceGenerator() {
           onChange={(e) => setDiscount(Number(e.target.value))}
         />
 
+        <label>Payment Terms:</label>
         <input
           type="text"
           value={paymentTerms}
           onChange={(e) => setPaymentTerms(e.target.value)}
         />
 
-<label>Invoice Filename:</label>
+        <label>Invoice Filename:</label>
         <input
           type="text"
           value={invoiceFileName}
@@ -177,7 +170,7 @@ function InvoiceGenerator() {
           </div>
           <div className="invoice-number">
             <p>INVOICE</p>
-            <p id="display-invoice-number oli">#{invoiceNumber}</p>
+            <p id="display-invoice-number" className="oli">#{invoiceNumber}</p>
           </div>
         </div>
 
@@ -231,48 +224,7 @@ function InvoiceGenerator() {
           <p>{paymentTerms}</p>
         </div>
 
-        <div className="important-info">
-          <p>
-            <strong>IMPORTANT:</strong>
-          </p>
-          <p>Bank account details are available on the next page.</p>
-        </div>
-
         {/* Footer */}
-        <div className="footer">
-          <div>
-            <strong>PREPARED BY:</strong> Hina Yasmeen, Head of Sales
-          </div>
-          <div>
-            <i className="fas fa-phone-alt"></i> 0339-4882800 <br />
-            <i className="fas fa-envelope"></i> hello@buzzfilling.com
-          </div>
-          <div>
-            <i className="fas fa-map-marker-alt"></i> 2nd Floor, 172 S, P.E.C.H.S., Shams Center, Plaza Extreme Commerce, Tariq Rd, Karachi
-          </div>
-        </div>
-      </div>
-    
-
-      {/* Bank Details */}
-      <div className="bank-details-container" id="bank-details">
-        <div className="bank-details">
-          <h3 className="section-heading">IF MAKING A PAYMENT IN PKR</h3>
-          <p>Bank Name: United Bank Limited (UBL)</p>
-          <p>Account Title: BUZZ FILING</p>
-          <p>Account Number: 1176314943776</p>
-          <p>IBAN: PK22UNIL0109000314943776</p>
-        </div>
-
-        <div className="bank-details">
-          <h3 className="section-heading">IF MAKING A PAYMENT IN USD</h3>
-          <p>Bank Name: Bangor Savings</p>
-          <p>Bank Account Title: Hasham Usman</p>
-          <p>Account Type: Checking</p>
-          <p>Account Number: 650510940261</p>
-          <p>Routing Number: 011275484</p>
-        </div>
-
         <div className="footer">
           <div>
             <strong>PREPARED BY:</strong> Hina Yasmeen, Head of Sales

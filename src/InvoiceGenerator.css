@@ -182,36 +182,7 @@ tr:nth-child(even) {
     }
 }
 
-/* BankDetails.css */
 
-.bank-details-container {
-  max-width: 600px;
-  margin: 0 auto;
-  font-family: 'unbounded', sans-serif;
-  color: #333;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin-top: -10px;
-margin-left: 500px;}
-
-.section-heading {
-  background-color: #d32f2f;
-  color: white;
-  text-align: center;
-  padding: 10px 0;
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-
-.bank-details {
-    padding: 20px;
-    margin-bottom: 10px; /* Reduced from 20px to 10px */
-  }
-  
-.bank-details p {
-  font-size: 14px;
-  margin: 5px 0;
-}
 
 .footer {
   background-color: #d32f2f;
@@ -266,13 +237,7 @@ margin-left: 500px;}
     margin-left: 10px;
 }
 
-.hide-on-web {
-    display: none;
-}
-
-/* Make the bank details visible for printing */
-@media print {
-    .hide-on-web {
-        display: block; /* Show when printing */
-    }
+.oli{
+margin-left: 100px;
+margin-top: 10px;
 }
